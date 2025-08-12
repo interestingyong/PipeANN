@@ -1,7 +1,9 @@
 #pragma once
 
 #include "utils.h"
+#if defined(__x86_64__)
 #include <immintrin.h>
+#endif
 #include <sstream>
 #include <string_view>
 

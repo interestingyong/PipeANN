@@ -117,8 +117,11 @@ namespace pipeann {
 
     // pointers to buffers for data
     T *data_buf = query_buf->coord_scratch;
+#if defined(__ARM_NEON) && defined(__aarch64__)
+    __builtin_prefetch((const char *) data_buf, 0, 2);
+#else
     _mm_prefetch((char *) data_buf, _MM_HINT_T1);
-
+#endif
     // sector scratch
     char *sector_scratch = query_buf->sector_scratch;
     _u64 &sector_scratch_idx = query_buf->sector_idx;

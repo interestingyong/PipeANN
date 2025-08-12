@@ -232,7 +232,11 @@ namespace pipeann {
 
       // pointers to buffers for data
       T *data_buf = coro_data.data_buf;
+#if defined(__ARM_NEON) && defined(__aarch64__)
+      __builtin_prefetch((const char *) data_buf, 0, 2);
+#else
       _mm_prefetch((char *) data_buf, _MM_HINT_T1);
+#endif
 
       // query <-> PQ chunk centers distances
       float *pq_dists = coro_data.pq_dists;
