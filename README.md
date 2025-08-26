@@ -236,10 +236,10 @@ Thus, only one top-1000 of the whole dataset should be calculated.
 Amazingly, this approach is very likely to succeed.
 
 ```bash
-# build/tests/gt_update <file> <index_npts> <tot_npts> <batch_npts> <target_topk> <target_dir> <insert_only>
+# build/tests/gt_update <file>  <tot_npts> <batch_npts> <target_topk> <target_dir> <insert_only>
 # /mnt/nvme/data/bigann/truth.bin is the top-1000 for SIFT.
 # 100M vectors in the index, 200M vectors in total, each batch contains 1M vectors.
-build/tests/gt_update /mnt/nvme/data/bigann/truth.bin 100000000 200000000 1000000 10 /mnt/nvme/indices_upd/bigann_gnd/1B_topk 1
+build/tests/gt_update /mnt/nvme/data/bigann/truth.bin 200000000 1000000 10 /mnt/nvme/indices_upd/bigann_gnd/1B_topk 1
 ```
 
 The output files will be stored in `/mnt/nvme/indices_upd/bigann_gnd/1B_topk/gt_{i * batch_npts}.bin`, each `bin` contains the ground truth for `[0, index_npts + i*batch_npts)`.

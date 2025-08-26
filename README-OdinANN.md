@@ -102,12 +102,12 @@ This generates the data used by Figure X. Here, we briefly introduce them:
 `fig8.sh` requires a SIFT800M index (the first 800M vectors of SIFT1B). To generate ground truths, use `gt_update`:
 ```bash
 # Here we use 100M as the index_npts, to match the truthset_l_offset (700M) in fig8.sh
-build/tests/gt_update /path/to/bigann_groundtruth.bin 100000000 1000000000 1000000 10 /path/to/groundtruths 1
+build/tests/gt_update /path/to/bigann_groundtruth.bin  1000000000 1000000 10 /path/to/groundtruths 1
 ```
 
 Other experiments require 100M indexes (the first 100M vectors of SIFT1B and DEEP1B). To generate ground truths:
 ```bash
-build/tests/gt_update /path/to/dataset_groundtruth.bin 100000000 200000000 1000000 10 /path/to/groundtruths 1 # 0 for fig12.sh
+build/tests/gt_update /path/to/dataset_groundtruth.bin  200000000 1000000 10 /path/to/groundtruths 1 # 0 for fig12.sh
 ```
 
 To reduce the run time, reduce the `num_step` parameter of `test_insert_search`.
