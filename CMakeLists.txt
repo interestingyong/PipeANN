@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(pipeann)
 
 set(CMAKE_STANDARD 17)
-option(USE_AIO "Use AIO instead of liburing" OFF)
+option(USE_AIO "Use AIO instead of liburing" ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # set(CMAKE_C_COMPILER_LAUNCHER ccache)
