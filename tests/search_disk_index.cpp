@@ -221,6 +221,11 @@ int search_disk_index(int argc, char **argv) {
   Lvec[0] = prev_L;
   LOG(INFO) << "Warming up finished.";
 
+  LOG(INFO) << "----------------sleep 60s for begin test";
+  sleep(60);
+  LOG(INFO) << "----------------begin test";
+
+
   std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
   std::cout.precision(2);
 
